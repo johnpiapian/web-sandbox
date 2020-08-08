@@ -1,0 +1,87 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Utility */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.progress-bar progress {
+    width: 100%;
+    border-radius: 0px;
+}
+
+.progress-bar progress::-webkit-progress-bar {
+    height: 5px;
+    background-color: #0091EA;
+}
+
+.progress-bar progress::-webkit-progress-value {
+    background-color: red;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* General */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: aliceblue;
+    font-family: sans-serif;
+}
+
+header {
+    padding: 50px 20px;
+    background-color: cadetblue;
+}
+
+header h1 {
+    color: white;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}
+
+#task-container {
+    margin: auto;
+    padding: 10px;
+}
+
+#task-container ul {
+    list-style-type: none;
+    max-width: 50%;
+    min-width: 300px;
+    margin: 0px auto;
+    padding: 5px 5px;
+    background-color: #d8d8d8;
+    /* border: 1px solid black; */
+}
+
+#task-container ul li {
+    padding: 10px;
+    margin: 5px 0px;
+    background-color: #9fa05f;
+    cursor: move;
+}

@@ -1,0 +1,50 @@
+body {
+    background-color: #313131;
+    padding: 0;
+    margin: 0;
+}
+
+.chess-container {
+    min-height: 500px;
+    border: 1px solid black;
+}
+
+.board {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: teal;
+}
+
+.board .row {
+    /* border: 1px solid red; */
+    padding: 0;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.board .row .square {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    min-width: 80px;
+    min-height: 80px;
+    cursor: pointer;
+    /* border: 1px solid black; */
+}
+
+.board .row .square.color-1 {
+    background-color: #693c00;
+}
+
+.board .row .square.color-2 {
+    background-color: #d6a96f;
+}
+
+.board .row .square .pawn {
+    display: block;
+}
+
+.board .row .square .pawn > img {
+    min-width: 100%;
+}
