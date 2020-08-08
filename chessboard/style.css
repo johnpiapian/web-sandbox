@@ -30,8 +30,10 @@ body {
     min-width: 80px;
     min-height: 80px;
     cursor: pointer;
+    font-size: initial;
     /* border: 1px solid black; */
 }
+
 
 .board .row .square.color-1 {
     background-color: #693c00;
@@ -39,6 +41,14 @@ body {
 
 .board .row .square.color-2 {
     background-color: #d6a96f;
+}
+
+.board .row .square.color-3 {
+    background-color: lightgray;
+}
+
+.board .row .square:hover {
+    background-color: lightgray;
 }
 
 .board .row .square .pawn {
