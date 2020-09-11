@@ -1,0 +1,30 @@
+html {
+    font-size: 1.2em;
+    font-family: sans-serif;
+    background-color: azure;
+}
+
+button.selected{
+    color: whitesmoke;
+    background-color: teal;
+}
+
+mark.style-1{
+    color: white;
+    background-color: blue;
+}
+
+mark.style-0 {
+    color: default;
+    background-color: default;
+}
+
+::-moz-selection{
+    color: white;
+    background-color: blue;
+}
+
+::selection{
+    color: white;
+    background-color: blue;
+}
