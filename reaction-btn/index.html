@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+
+        @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        article {
+            width: 450px;
+            padding: 10px;
+            margin: 20px auto;
+            border-radius: 10px;
+            /* border: 2px solid #bbb; */
+            box-shadow: 0px 0px 10px -6px black;
+        }
+
+        .content p {
+            text-align: justify;
+        }
+
+        .controller {
+            display: flex;
+            padding: 5px 0;
+            /* background-color: rgb(233, 233, 233); */
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .controller .item {
+            flex: 1;
+            text-align: center;
+            margin: 0 4px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            /* background-color: #eee; */
+            /* border: 1px solid #ccc; */
+        }
+
+        .controller .item:hover > .btn {
+            color: #777;
+        }
+
+        .controller .item:hover > .reaction-container .reactions {
+            visibility: visible;
+        }
+
+        .like .reaction-container {
+            position: relative;
+        }
+        
+        .like .reactions {
+            visibility: hidden;
+            display: flex;
+            position: absolute;
+            top: -55px;
+            left: -10px;
+            /* padding: 10px; */
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 15px;
+            border: 1px solid #bbb;
+            box-shadow: 0px 0px 10px -2px black;
+            transition: all 1s;
+        }
+
+        /* .like .reactions:hover {
+            visibility: visible;
+        } */
+        
+        .reactions > span {
+            margin: 0 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: transform 100ms ease-out;
+        }
+        
+        .reactions > span:hover {
+            /* color: #888; */
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <section class="content">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+        <div id="controller" class="controller">
+            <div id="like" class="item like">
+                <div class="reaction-container">
+                    <div class="reactions">
+                        <span>Like</span>
+                        <span>Smile</span>
+                        <span>Laugh</span>
+                        <span>Sad</span>
+                    </div>
+                </div>
+                <span class="btn">Like</span>
+            </div>
+            <div id="comment" class="item comment">
+                <span class="btn">Comment</span>
+            </div>
+            <div id="share" class="item share">
+                <span class="btn">Share</span>
+            </div>
+        </div>
+        <div class="comment">
+            <p></p>
+        </div>
+    </article>
+</body>
+</html>
