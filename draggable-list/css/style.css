@@ -42,6 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 500vh;
     background-color: aliceblue;
     font-family: sans-serif;
 }
