@@ -1,0 +1,40 @@
+/* Resetting and Custom CSS */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+div.contextMenu {
+    position: absolute;
+    z-index: 1000;
+    width: 100px;
+    text-align: left;
+    color: whitesmoke;
+    background-color: #a5a5a5;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+div.contextMenu.hidden {
+    display: none;
+}
+
+div.contextMenu ul {
+    list-style-type: none;
+}
+
+div.contextMenu ul li {
+    cursor: pointer;
+    padding: 5px;
+}
+
+div.contextMenu ul li:hover {
+    background-color: #8a8a8a;
+}
