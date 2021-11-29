@@ -1,0 +1,114 @@
+/* Resetting and Custom CSS */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Resuable Components */
+div.btn-style {
+    display: inline-block;
+    padding: 5px;
+}
+
+div.btn-style a {
+    display: block;
+    font-weight: bold;
+    color: rgb(131,25,241);;
+    text-decoration: none;
+    background-color: white;
+}
+
+
+body {
+    font-family: sans-serif;
+}
+
+div.wrapper-de {
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    height: 250px;
+    height: 100vh;
+    background: rgb(131,25,241);
+    background: linear-gradient(122deg, rgba(131,25,241,1) 0%, rgba(79,30,138,1) 69%, rgba(68,30,137,1) 100%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+nav div.logo {
+    /* border: 1px solid black; */
+}
+
+nav div.logo img {
+    max-width: 100px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-flex;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: gainsboro;
+}
+
+header div.welcome {
+    display: flex;
+    height: 500px;
+    background-image: url('header-background.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+div.welcome section.content {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 800px;
+    margin: auto;
+    height: 100%;
+}
+
+div.welcome section.content h1 {
+    color: white;
+    font-size: 3em;
+    align-self: center;
+    padding: 50px;
+}
+
+div.welcome section.content div.extra {
+    font-size: .8em;
+    color: white;
+    align-self: flex-end;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+div.welcome section.content div.extra * {
+    padding: 5px 0;
+}
+
+
