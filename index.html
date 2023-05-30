@@ -1,0 +1,16 @@
+<h1>Directory Listing: {{ page.dir }}</h1>
+
+<ul>
+  {% for file in site.static_files %}
+    {% if file.path contains page.dir %}
+      {% assign path_parts = file.path | split: '/' %}
+      {% if path_parts.size > 1 %}
+        {% assign parent_dir = path_parts | slice: 0, path_parts.size | join: '/' %}
+        {% assign file_name = path_parts | last %}
+        {% if file_name != 'index.html' %}
+          <li><a href="{{ parent_dir }}">{{ file_name }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul>
