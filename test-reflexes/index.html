@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Reflexes</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                -khtml-user-select: none; /* Konqueror HTML */
+                -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none; /* Non-prefixed version, currently
+                                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
+        body {
+            background-color: whitesmoke;
+            font-family: sans-serif;
+        }
+
+        .fullsize {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            z-index: 1000;
+            position: absolute;
+            background-color: #6db1b1;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .fullsize .description {
+            color: white;
+            font-size: 2.2em;
+        }
+
+        .screen {
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+        }
+
+        .screen .activate {
+            background-color: #00be00;
+            /* background-color: #da102b; */
+        }
+
+        .screen .fail {
+            background-color: red;
+        }
+
+        .screen .left {
+            height: 100%;
+            width: 100%;
+            /* border-right: 1px solid black; */
+        }
+        
+        .screen .right {
+            height: 100%;
+            width: 100%;
+            /* border-left: 1px solid black; */
+        }
+
+</style>
+</head>
+<body>
+    <div id="fullsize" class="fullsize">
+        <div class="description noselect">
+            <span>Click to start...</span>
+        </div>
+    </div>
+    <section id="screen" class="screen">
+        <div id="left" class="left"></div>
+        <div id="right" class="right"></div>
+    </section>
+    <script>
+
+        var st = performance.now();
+
+        function genrand(min, max){
+            return Math.floor((Math.random() * max) + min);
+        }
+
+        function rand(max){
+            return genrand(0, max + 1);
+        }
+
+        function reset(){
+            document.getElementById('left').classList.remove('activate');
+            document.getElementById('right').classList.remove('activate');
+            document.getElementById('fullsize').classList.remove('hidden');
+        }
+
+        function success(st){
+            let time = Math.round(performance.now() - st);
+            confirm(`It took you ${time} milliseconds.`);
+            reset();
+        }
+
+        function fail(){
+            confirm(`You pressed the wrong button!`);
+            reset();
+        }
+
+        function start(){
+            let option = ['left', 'right'];
+            let side = option[rand(1)];
+
+            document.getElementById(side).classList.add('activate');
+
+            st = performance.now();
+        }
+
+        function startGame(){
+            document.getElementById('fullsize').classList.add('hidden');
+            start();
+        }
+
+        //**Event handlers**
+        document.getElementById('fullsize').onclick = () => {
+            setTimeout(startGame, genrand(800, 1500));
+        }
+
+
+        document.getElementById('left').onclick = () => {
+            let isLeft = document.getElementById('left').classList.contains('activate');
+            if(isLeft){
+                success(st);
+            }else{
+                fail();
+            }
+        }
+
+        document.getElementById('right').onclick = () => {
+            let isRight = document.getElementById('right').classList.contains('activate');
+            if(isRight){
+                success(st);
+            }else{
+                fail();
+            }
+        }
+
+        document.onkeypress = (e) => {
+            //Press Space to start
+            let El = document.getElementById('fullsize');
+            
+            if(e.keyCode == 32 && !El.classList.contains('hidden')){
+                El.click();
+            }
+        }
+
+        document.onkeydown = (e) => {
+            let isLeft = document.getElementById('left').classList.contains('activate');
+            let isRight = document.getElementById('right').classList.contains('activate');
+
+            if(isLeft || isRight){
+                // 37 -> left 39 -> right
+                if(isLeft && e.keyCode == 37){
+                    document.getElementById('left').onclick();
+                }else if(isRight && e.keyCode == 39){
+                    document.getElementById('right').onclick();
+                }else{
+                    fail();
+                }
+            }
+        }
+
+    </script>
+</body>
+</html> 

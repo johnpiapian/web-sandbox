@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color animation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            -webkit-transition: background-color 500ms linear;
+            -moz-transition: background-color 500ms linear;
+            -o-transition: background-color 500ms linear;
+            -ms-transition: background-color 500ms linear;
+            transition: background-color 500ms linear;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id="colorhex"></h1>
+    </main>
+    <script>
+        function genNumber(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function genHexNumber(){
+            return genNumber(0, 15).toString(16);
+        }
+
+        function genColor(type){
+            let c1 = genHexNumber();
+            let c2 = genHexNumber();
+            let c3 = genHexNumber();
+            
+            if(type == 0){
+                return `#${c1}${c2}${c3}`;
+            }else{
+                return `#${c1}${c1}${c2}${c2}${c3}${c3}`;
+            }
+        }
+        
+        function animation(){
+            let interval = setInterval(app, 500);
+            
+            function app(){
+                let color = genColor(1);
+                document.body.style.backgroundColor = color;
+                document.getElementById('colorhex').textContent = color;
+            }
+        }
+
+        animation();
+
+    </script>
+</body>
+</html>
