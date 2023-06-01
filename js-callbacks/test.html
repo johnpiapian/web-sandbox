@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <script>
+        // random number generator
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function loadDatabase(callback) {
+            setTimeout(function () {
+                if (getRandomNumber(0, 1) === 1) {
+                    callback(1, {
+                        name: 'John',
+                        age: 25
+                    });
+                } else {
+                    callback(0, {
+                        msg: 'Could not connect to database!'
+                    });
+                }
+            }, 1500);
+        }
+
+        loadDatabase((code, data) => {
+            if(code === 0) {
+                console.error(data.msg);
+            } else {
+                console.log(data);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
